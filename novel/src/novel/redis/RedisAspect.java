@@ -59,7 +59,9 @@ public class RedisAspect {
         String redisKey = applId + ":" + className + "." + methodName;
         System.out.println("applId:"+applId);
         if(args.length==3)
-        System.out.println("argslength:"+args.length+"ar0:"+args[0]+"ar1:"+args[1]+"ar2:"+args[2]);
+        {
+            System.out.println("argslength:"+args.length+"ar0:"+args[0]+"ar1:"+args[1]+"ar2:"+args[2]);
+        }
         System.out.println("redisKey:"+redisKey);
         
         RedisAnontation anontation = ((MethodSignature)joinPoint.getSignature()).getMethod().getAnnotation(RedisAnontation.class);
