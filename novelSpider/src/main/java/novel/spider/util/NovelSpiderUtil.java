@@ -1,5 +1,6 @@
 package novel.spider.util;
 
+import io.github.pixee.security.BoundedLineReader;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -125,7 +126,7 @@ public final class NovelSpiderUtil {
 			for (File file : files) {
 				BufferedReader bufr = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));	
 				String line = null;
-				while ((line = bufr.readLine()) != null) {
+				while ((line = BoundedLineReader.readLine(bufr, 5_000_000)) != null) {
 					out.println(line);
 				}
 				bufr.close();
